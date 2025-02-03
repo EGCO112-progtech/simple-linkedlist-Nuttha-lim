@@ -54,12 +54,17 @@ int main(int argc, const char * argv[]) {
     
     
    /*  Exercise IV change to while loop!! (you can use NULL to help)*/
-       tmp=head;
+       /*tmp=head;
        printf("\n");
          while(tmp!=NULL){
             printf("%3d", tmp->value);
             tmp = tmp->next;
-        }
+        }*/
+        printf("\n");
+        for(tmp=head;tmp!=NULL;tmp=tmp->next)
+     {
+        printf("%3d",tmp->value);
+     }
     
     
  /*  Exercise V Use malloc to create all nodes, instead of create a struct!!
@@ -87,13 +92,19 @@ int main(int argc, const char * argv[]) {
          //use a loop to help
           
      */
-    tmp = head;
+     for(tmp=head;tmp!=NULL;tmp=head)
+     {
+        head=head->next;
+        printf("\nFree %d",tmp->value);
+        free(tmp);
+     }
+    /*tmp = head;
     while (tmp != NULL) {
         NodePtr next = tmp->next;
         printf("\nFree %d",tmp->value);
         free(tmp);
         tmp = next;
-    }
+    }*/
     
     return 0;
 }
